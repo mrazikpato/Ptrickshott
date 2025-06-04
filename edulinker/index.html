@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="edulinkerApp">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +12,8 @@
     <script src="app.js" defer></script>
 </head>
 <body ng-controller="MainController as vm">
+</head>
+<body>
     <!-- Hero Section -->
     <header class="hero">
         <div class="hero-content">
@@ -29,6 +32,20 @@
             <span class="material-icons">{{s.icon}}</span>
             <h3>{{s.title}}</h3>
             <p>{{s.text}}</p>
+        <div class="solution">
+            <span class="material-icons">school</span>
+            <h3>Schools</h3>
+            <p>Easily browse trainings, find qualified trainers, and manage your planning effortlessly.</p>
+        </div>
+        <div class="solution">
+            <span class="material-icons">person</span>
+            <h3>Trainers</h3>
+            <p>Manage clients, schedule trainings, and communicate seamlessly from a single dashboard.</p>
+        </div>
+        <div class="solution">
+            <span class="material-icons">business</span>
+            <h3>Companies</h3>
+            <p>Compare trainings, track team progress, and order customized sessions with ease.</p>
         </div>
     </section>
 
@@ -40,6 +57,12 @@
                 <span class="material-icons">{{f.icon}}</span>
                 <p>{{f.text}}</p>
             </div>
+            <div class="feature"><span class="material-icons">search</span><p>Search Trainings & Trainers</p></div>
+            <div class="feature"><span class="material-icons">event</span><p>Integrated Calendar & Notifications</p></div>
+            <div class="feature"><span class="material-icons">forum</span><p>Built-in Communication</p></div>
+            <div class="feature"><span class="material-icons">folder</span><p>File and Material Sharing</p></div>
+            <div class="feature"><span class="material-icons">star_rate</span><p>Ratings & Feedback System</p></div>
+            <div class="feature"><span class="material-icons">account_circle</span><p>Professional Profiles for Trainers & Organizations</p></div>
         </div>
     </section>
 
@@ -48,6 +71,12 @@
         <h2>Who is EduLinker for?</h2>
         <ul>
             <li ng-repeat="a in vm.audience">{{a}}</li>
+            <li>School Representatives</li>
+            <li>Company Managers</li>
+            <li>Project Coordinators</li>
+            <li>Trainers & Educators</li>
+            <li>Education Freelancers</li>
+            <li>Nonprofit Organizations</li>
         </ul>
     </section>
 
