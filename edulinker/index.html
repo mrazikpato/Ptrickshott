@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="en" ng-app="edulinkerApp">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,6 +8,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="app.js" defer></script>
+</head>
+<body ng-controller="MainController as vm">
 </head>
 <body>
     <!-- Hero Section -->
@@ -23,6 +28,10 @@
 
     <!-- Problem Solution Section -->
     <section class="solutions">
+        <div class="solution" ng-repeat="s in vm.solutions">
+            <span class="material-icons">{{s.icon}}</span>
+            <h3>{{s.title}}</h3>
+            <p>{{s.text}}</p>
         <div class="solution">
             <span class="material-icons">school</span>
             <h3>Schools</h3>
@@ -44,6 +53,10 @@
     <section class="features">
         <h2>Platform Key Features</h2>
         <div class="feature-grid">
+            <div class="feature" ng-repeat="f in vm.features">
+                <span class="material-icons">{{f.icon}}</span>
+                <p>{{f.text}}</p>
+            </div>
             <div class="feature"><span class="material-icons">search</span><p>Search Trainings & Trainers</p></div>
             <div class="feature"><span class="material-icons">event</span><p>Integrated Calendar & Notifications</p></div>
             <div class="feature"><span class="material-icons">forum</span><p>Built-in Communication</p></div>
@@ -57,6 +70,7 @@
     <section class="audience">
         <h2>Who is EduLinker for?</h2>
         <ul>
+            <li ng-repeat="a in vm.audience">{{a}}</li>
             <li>School Representatives</li>
             <li>Company Managers</li>
             <li>Project Coordinators</li>
