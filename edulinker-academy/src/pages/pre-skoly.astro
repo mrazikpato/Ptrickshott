@@ -1,0 +1,186 @@
+---
+import Base from '../layouts/Base.astro';
+
+const blocks = [
+  ['0:00 – 0:30', 'Úvod a demystifikácia', 'Otvárame wow momentom — live demo diferenciácie úloh. Bez nudných definícií. Učitelia, ktorí si ráno mysleli, že „toto nie je pre mňa", sú o hodinu prekvapení, čo zvládnu.'],
+  ['0:30 – 1:30', 'Prompt Lab', 'Štruktúra ROLA → KONTEXT → ÚLOHA → FORMÁT. Každý účastník napíše prompt pre svoj predmet. Pomáhame jednotlivo. Cieľ: 5 funkčných promptov v telefóne, ktoré použijú zajtra.'],
+  ['1:45 – 2:30', 'Praktické use-casy', 'NotebookLM pre ŠVP. Automatizácia opravovania krátkych odpovedí. Napkin AI pre vizualizácie. Nenápadná zmienka o OP JAK administratíve — semienko, nie predaj.'],
+  ['2:30 – 3:00', 'Bezpečnosť a hranice', 'Čo do AI nikdy nepatrí (mená žiakov, rodné čísla, výsledky vyšetrení). Halucinácie a ako ich rozoznať. Návrh školskej AI politiky v troch vetách.'],
+  ['3:00 – 3:30', 'Q&A a záver', 'Otvorené otázky. Žiadne predajné slajdy. Odkážeme na bezplatné zdroje a ďalšie kroky pre tých, ktorí chcú ísť hlbšie.'],
+];
+
+const promptPeek = [
+  {
+    title: 'Diferenciácia úloh',
+    body: `Si skúsený učiteľ [predmet] na [stupeň] škole.
+Vytvor 3 verzie úlohy na tému [téma]:
+— verzia pre slabších žiakov (jednoduchšia, s nápovedou)
+— verzia pre priemerných žiakov
+— verzia pre nadaných (s rozšírením)
+Každá verzia max. 5 viet s inštrukciami.`,
+  },
+  {
+    title: 'Email rodičom',
+    body: `Napíš email rodičom žiakov 5.A o [situácia/udalosť].
+Tón: profesionálny, priateľský, stručný (max. 150 slov).
+Zahrň: čo sa stalo, čo od rodičov potrebujeme, dokedy.
+Podpis: [tvoje meno], triedny učiteľ/ka.`,
+  },
+];
+---
+<Base
+  title="EduLinker Academy pre školy — AI pre učiteľov"
+  description="Workshop pre celú zborovňu. 3,5 hodiny. Každý učiteľ odchádza s 5 funkčnými promptmi pre svoj predmet a Prompt Playbookom v ruke."
+  ogPath="/pre-skoly"
+>
+  <section class="max-w-6xl mx-auto px-5 sm:px-8 pt-16 sm:pt-20 pb-16">
+    <div class="grid lg:grid-cols-12 gap-10">
+      <div class="lg:col-span-8">
+        <span class="eyebrow">Pre zborovne · ZŠ a SŠ</span>
+        <h1 class="display text-4xl sm:text-5xl lg:text-6xl mt-6">
+          AI pre učiteľov:<br />
+          menej <span class="italic text-accent">byrokracie</span>,<br />
+          viac <span class="italic text-accent">učenia</span>.
+        </h1>
+        <p class="mt-7 text-lg text-ink-muted leading-relaxed">
+          3,5 hodiny v zborovni. Bez teórie z univerzít. Bez prezentácií, ktoré
+          ste videli desaťkrát. Každý učiteľ odchádza s konkrétnymi promptmi,
+          ktoré použije zajtra na prípravu hodiny alebo komunikáciu s rodičmi.
+        </p>
+      </div>
+      <aside class="lg:col-span-4 self-end">
+        <div class="border-l-2 border-accent pl-5">
+          <p class="font-serif text-base text-navy leading-relaxed italic">
+            „Pred troma hodinami niektorí z vás dvíhali ruku, že toto nie je pre nich.
+            Teraz každý z vás má v telefóne niečo, čo zajtra použije."
+          </p>
+          <p class="mt-3 text-xs text-ink-muted">— záver workshopu, doslovne</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="bg-paper-tint border-y border-navy/10">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8 py-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div>
+        <div class="font-serif text-4xl text-navy">3,5 h</div>
+        <p class="mt-3 text-sm text-ink-muted">dĺžka workshopu · s prestávkou</p>
+      </div>
+      <div>
+        <div class="font-serif text-4xl text-navy">10–25</div>
+        <p class="mt-3 text-sm text-ink-muted">učiteľov · ideálna veľkosť skupiny</p>
+      </div>
+      <div>
+        <div class="font-serif text-4xl text-navy">5</div>
+        <p class="mt-3 text-sm text-ink-muted">funkčných promptov v ruke každého</p>
+      </div>
+      <div>
+        <div class="font-serif text-4xl text-navy">OP JAK ✓</div>
+        <p class="mt-3 text-sm text-ink-muted">oprávnený výdaj z DVPP šablón</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-6xl mx-auto px-5 sm:px-8 py-24">
+    <span class="eyebrow">Časový plán</span>
+    <h2 class="display text-3xl sm:text-4xl mt-5 mb-10">Päť blokov, žiadny prebytočný slajd.</h2>
+    <ol class="border-t border-navy/10">
+      {blocks.map(([time, title, body]) => (
+        <li class="grid grid-cols-12 gap-6 py-7 border-b border-navy/10">
+          <div class="col-span-12 sm:col-span-2 font-mono text-sm text-accent tracking-tight pt-1">{time}</div>
+          <h3 class="col-span-12 sm:col-span-4 font-serif text-xl text-navy tracking-tightest">{title}</h3>
+          <p class="col-span-12 sm:col-span-6 text-ink-muted leading-relaxed">{body}</p>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <section class="bg-navy text-paper">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8 py-20">
+      <div class="grid lg:grid-cols-12 gap-10 mb-10">
+        <header class="lg:col-span-5">
+          <span class="text-[11px] uppercase tracking-[0.18em] text-accent font-semibold">Prompt Playbook · ukážka</span>
+          <h2 class="display text-3xl sm:text-4xl text-paper mt-5">Dva z ôsmich promptov, ktoré odovzdávame vytlačené.</h2>
+        </header>
+        <p class="lg:col-span-6 lg:col-start-7 text-paper/75 leading-relaxed self-end">
+          Playbook je A5, obojstranný, vytlačený. Učitelia si ho odložia do peračníka.
+          Žiadne PDF, ktoré sa stratí v emailovej schránke.
+        </p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-px bg-paper/15 border border-paper/15">
+        {promptPeek.map((p) => (
+          <article class="bg-navy-deep p-6">
+            <h3 class="font-serif text-xl text-paper mb-4">{p.title}</h3>
+            <pre class="text-[12.5px] text-paper/80 font-mono whitespace-pre-wrap leading-relaxed">{p.body}</pre>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-4xl mx-auto px-5 sm:px-8 py-24">
+    <span class="eyebrow">OP JAK angle</span>
+    <h2 class="display text-3xl sm:text-4xl mt-5">Ako to financovať z dotácie.</h2>
+    <p class="mt-6 text-ink-muted leading-relaxed">
+      Workshop AI pre učiteľov je plne oprávnenou aktivitou v rámci šablón DVPP
+      (Ďalšie vzdelávanie pedagogických pracovníkov) operačného programu Jan Amos Komenský.
+      Pre základné a stredné školy s aktívnym projektom OP JAK ide o nulový priamy
+      rozpočtový dopad — workshop sa zaplatí z manažérskej a administratívnej réžie.
+    </p>
+    <p class="mt-4 text-ink-muted leading-relaxed">
+      Pre úspešný audit zabezpečíme všetky podklady: prezenčné listiny, anotáciu
+      workshopu, certifikáty účastníkov a fotodokumentáciu. Vy len podpisujete.
+    </p>
+  </section>
+
+  <section class="bg-paper-tint border-y border-navy/10">
+    <div class="max-w-4xl mx-auto px-5 sm:px-8 py-16">
+      <h2 class="display text-2xl sm:text-3xl mb-8">Čo sa nás riaditelia pýtajú</h2>
+      <div class="space-y-3">
+        <details class="border border-navy/10 bg-paper rounded-sm group">
+          <summary class="cursor-pointer list-none p-5 flex justify-between gap-6">
+            <span class="font-medium text-navy">Naši učitelia sú technicky veľmi rôzni. Dáva to zmysel pre všetkých?</span>
+            <span class="text-accent text-xl group-open:rotate-45 transition-transform" aria-hidden="true">+</span>
+          </summary>
+          <p class="px-5 pb-5 text-ink-muted leading-relaxed">
+            Áno — workshop začíname tam, kde sú. Discovery call vopred zistí, koľko percent
+            zboru používa Teams / Google Workspace a aký je priemerný technický level.
+            Wow momenty sú prispôsobené tak, aby zaujali aj „starých harcovníkov".
+          </p>
+        </details>
+        <details class="border border-navy/10 bg-paper rounded-sm group">
+          <summary class="cursor-pointer list-none p-5 flex justify-between gap-6">
+            <span class="font-medium text-navy">Čo ak nám zlyhá WiFi?</span>
+            <span class="text-accent text-xl group-open:rotate-45 transition-transform" aria-hidden="true">+</span>
+          </summary>
+          <p class="px-5 pb-5 text-ink-muted leading-relaxed">
+            Vlastný mobilný hotspot. Plus offline plán B — vytlačené prompty s ich výstupmi
+            a diskusné aktivity. Workshop sa neskončí, len mierne zmení formu.
+          </p>
+        </details>
+        <details class="border border-navy/10 bg-paper rounded-sm group">
+          <summary class="cursor-pointer list-none p-5 flex justify-between gap-6">
+            <span class="font-medium text-navy">Aké platené nástroje budeme potrebovať?</span>
+            <span class="text-accent text-xl group-open:rotate-45 transition-transform" aria-hidden="true">+</span>
+          </summary>
+          <p class="px-5 pb-5 text-ink-muted leading-relaxed">
+            Žiadne. Gemini, ChatGPT free, NotebookLM, Napkin AI — všetko, čo používame,
+            je bezplatné. Pre 90 % use-casov v škole free verzie plne stačia.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-4xl mx-auto px-5 sm:px-8 py-24 text-center">
+    <h2 class="display text-3xl sm:text-4xl">Pilotná séria · jar 2026</h2>
+    <p class="mt-6 text-ink-muted max-w-prose mx-auto leading-relaxed">
+      Hľadáme 3–5 pilotných škôl v Juhomoravskom kraji za zvýhodnenú cenu výmenou
+      za spätnú väzbu. Ak ste riaditeľ/ka a téma vás zaujíma, stačí krátky email.
+    </p>
+    <a href="mailto:patrik@edulinker.cz?subject=Academy%20%E2%80%94%20pilotn%C3%A1%20%C5%A1kola"
+       class="mt-9 inline-flex items-center gap-2 text-sm font-medium bg-accent text-paper px-7 py-4 rounded-sm hover:bg-accent-ink transition-colors">
+      Prihlásiť školu <span aria-hidden="true">→</span>
+    </a>
+  </section>
+</Base>

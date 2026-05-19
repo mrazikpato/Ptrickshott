@@ -1,35 +1,37 @@
-# Ptrickshott
+# Ptrickshott — EduLinker working repo
 
-This repository contains a responsive landing page for **EduLinker**. The page is built with HTML, CSS, and AngularJS to provide a modern, dynamic user experience.
+Pracovný repozitár s marketingovými stránkami pre **EduLinker** a **EduLinker Academy**.
 
-## Viewing the page
+## Aktívne projekty
 
-Open `edulinker/index.html` in a web browser. The page loads Google Fonts, Material Icons, and AngularJS from public CDNs, so an internet connection is required.
+| Priečinok | Stack | Účel |
+|---|---|---|
+| [`edulinker-platform/`](./edulinker-platform) | Astro 4 + Tailwind | Landing pre platformu EduLinker (B2B/B2G SaaS) |
+| [`edulinker-academy/`](./edulinker-academy) | Astro 4 + Tailwind | Landing pre EduLinker Academy (workshopy) |
 
-## Project structure
-
-- `edulinker/index.html` – main HTML file
-- `edulinker/styles.css` – styling for the landing page
-- `edulinker/app.js` – AngularJS code powering dynamic content
-
-No additional build tools are needed. Simply open the page to explore EduLinker.
-This repository contains utilities for working with prime numbers. The main
-module provides a function to test primality and a command-line interface.
-
-## Usage
-
-Install the project in editable mode (optional) and run the CLI:
+Oba projekty sú samostatné Astro buildy s vlastným `package.json` a `dist/`. Detaily v ich vlastných README.
 
 ```bash
-python -m ptrickshott.prime 17
+cd edulinker-platform && npm install && npm run dev
+cd edulinker-academy   && npm install && npm run dev
 ```
 
-The command prints whether the supplied number is prime.
+## Plán presunu do samostatných GitHub repov
 
-## Running tests
-
-Run `pytest` from the repository root:
+Tieto dva priečinky sú pripravené na presun do samostatných GitHub repozitárov.
+Akonáhle budú nové repá vytvorené, použijeme `git subtree split` + push:
 
 ```bash
-pytest -q
+# Pre platformu
+git subtree split --prefix=edulinker-platform -b platform-export
+git push <nove-repo-url> platform-export:main
+
+# Pre academy
+git subtree split --prefix=edulinker-academy -b academy-export
+git push <nove-repo-url> academy-export:main
 ```
+
+## Legacy
+
+- `edulinker/` — starý AngularJS prototyp z 2023, ponechaný ako referencia.
+- `ptrickshott/` + `tests/` — Python primality utilita (nesúvisí s EduLinker).

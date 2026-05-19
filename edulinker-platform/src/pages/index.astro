@@ -1,0 +1,357 @@
+---
+import Base from '../layouts/Base.astro';
+
+const pillars = [
+  {
+    n: '01',
+    name: 'B2B/B2G Marketplace',
+    body: 'Kurátorský katalóg overenej ponuky workshopov, lektorov a mentoringu. Bez emailového ping-pongu — objednávka, kalendár, chat aj podklady na jednom mieste, mobile-first.',
+    proof: 'Pre školy & firmy',
+  },
+  {
+    n: '02',
+    name: 'FinTech jadro a wallets',
+    body: 'Virtuálne vzdelávacie rozpočty pre oddelenia. Schválenie cez Teams/Slack na jeden klik. Klient platí jednu konsolidovanú faktúru namiesto tridsiatich.',
+    proof: '500 CZK/faktúra ušetrených',
+  },
+  {
+    n: '03',
+    name: 'OP JAK Compliance Engine',
+    body: 'Karta účastníka v digitálnej podobe. .csv/.xml exporty do IS ESF 2021+ na jeden klik. Live monitoring indikátora 525102 a 600000.',
+    proof: 'Jediný komerčný export 2026',
+  },
+  {
+    n: '04',
+    name: 'AI kompetenčný engine',
+    body: 'Mapovanie zručností zamestnancov proti firemnému Skill Frameworku. Personalizované cesty zložené z marketplace obsahu. Plne v rámci AI Act.',
+    proof: 'Roll-out 2027',
+  },
+  {
+    n: '05',
+    name: 'Analytika & Digital Credentials',
+    body: 'Kirkpatrick L3 a L4 metriky — zmena správania a Time-to-Competency. Prenosné digitálne certifikáty pre skills-based hiring.',
+    proof: 'ROI report na jeden klik',
+  },
+];
+
+const tiers = [
+  {
+    name: 'EduLinker EDU',
+    audience: 'MŠ · ZŠ · SŠ s OP JAK',
+    price: '30–60 000 CZK',
+    unit: 'ročne, inštitucionálna licencia',
+    bullets: [
+      'OP JAK Compliance Engine',
+      'IS ESF exporty na jeden klik',
+      'Karta účastníka digitálne',
+      'Plne uhradiateľné z dotačnej réžie',
+    ],
+    note: 'Pre školy v OP JAK projekte je toto plne uhradiateľné z manažérskej réžie šablón.',
+  },
+  {
+    name: 'Starter',
+    audience: 'SME do 100 zamestnancov',
+    price: '4 900 CZK',
+    unit: '/ mesiac · fixne, bez per-seat',
+    bullets: [
+      'Marketplace s overenými lektormi',
+      'Konsolidovaná mesačná faktúra',
+      'Virtuálne wallets pre oddelenia',
+      'Schválenie cez Teams/Slack',
+    ],
+  },
+  {
+    name: 'Growth',
+    audience: '100–500 zamestnancov',
+    price: '12 900 CZK',
+    unit: '/ mesiac + 0,5 % z objemu',
+    bullets: [
+      'Všetko zo Starter',
+      'API integrácia s Active Directory',
+      'Stripe Connect rozdeľovanie provízií',
+      'Compliance reporty pre HR',
+    ],
+    highlight: true,
+  },
+  {
+    name: 'Scale',
+    audience: 'Enterprise · 500+',
+    price: 'Custom',
+    unit: '~1–2 % z L&D budgetu',
+    bullets: [
+      'AI kompetenčný engine (2027)',
+      'Skill Framework mapping',
+      'Dedikovaný success manager',
+      'On-prem option na vyžiadanie',
+    ],
+  },
+];
+
+const founders = [
+  { name: 'Patrik M.', role: 'CEO & B2B Sales', note: '7 r. v IT project managemente. Rozumie nákupným procesom korporácií.' },
+  { name: 'Andrea O.', role: 'CPO / Product', note: 'Dátová synchronizácia, UX. Rodinné väzby na školstvo — pozná realitu školení.' },
+  { name: 'Ján M.', role: 'COO / PMO', note: 'Vedie tímy projektových manažérov. Bývalý učiteľ.' },
+  { name: 'Patrik Š.', role: 'CTO / Architect', note: '12 r. v .NET. Syn riaditeľa školy a učiteľky. Autor architektúry.' },
+  { name: 'Martin', role: 'Senior Tech Lead', note: '14 r. v bankovom a enterprise vývoji. Z učiteľskej rodiny.' },
+  { name: 'Jozef', role: 'Frontend Specialist', note: '3 r. vývoja. Skoro 20 r. aktívny lektor cudzích jazykov.' },
+];
+
+const faqs = [
+  {
+    q: 'Sme malá firma — dáva nám to vôbec zmysel?',
+    a: 'Starter plán je postavený presne pre 20–100 ľudí. Ak za rok míňate na školenia 100–500 tisíc CZK od viac ako piatich dodávateľov, vraciame vám späť čas finančného oddelenia. Pri 30 školeniach ročne je interný náklad len na spracovanie faktúr odhadom 15 000 CZK — to je sama o sebe návratnosť.',
+  },
+  {
+    q: 'Ako prebieha onboarding?',
+    a: 'V prvej fáze concierge. To znamená, že my urobíme Skills & Financial Audit (zadarmo pre prvých klientov), pomenujeme finančné úniky a manuálne nájdeme lektorov, ktorí riešia vaše konkrétne potreby. Žiadne prázdne dashboardy a „prejdite si tutoriál". Až v Roku 2 prechádzame na samoobslužný marketplace.',
+  },
+  {
+    q: 'Bezpečnosť dát žiakov a zamestnancov?',
+    a: 'CTO má 12 rokov v enterprise a bankovom vývoji — bezpečnosť nie je dodatočná vrstva, ale predpoklad. Pre školy spracovávame osobné údaje žiakov v súlade s pravidlami IS ESF 2021+ a GDPR. Firemné dáta nepoužívame na trénovanie verejných LLM modelov, bodka.',
+  },
+  {
+    q: 'Čo s OP JAK po roku 2027?',
+    a: 'Compliance Engine je parametricky konfigurovateľný. Keď národné agentúry zverejnia formáty pre MFF 2028–2034 (Erasmus+ má zdvojnásobený rozpočet na 40,8 mld €), upravíme mapovacie schémy a zákazníci pokračujú bez výmeny systému.',
+  },
+  {
+    q: 'Prečo nie per-seat ako každý iný SaaS?',
+    a: 'Pretože AI radikálne znižuje počet potrebných zamestnancov a per-seat sa rozpadá pod vlastnou váhou. Atlassian na to v 2026 stratil cez 60 % hodnoty. Naceňujeme za organizačnú hodnotu a objem peňazí pretekajúci platformou — nie za počet hláv.',
+  },
+];
+---
+<Base title="EduLinker — infraštruktúra pre trh so znalosťami" ogPath="/">
+  <!-- HERO -->
+  <section class="relative">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8 pt-16 sm:pt-24 pb-20">
+      <div class="grid lg:grid-cols-12 gap-10 lg:gap-16 items-end">
+        <div class="lg:col-span-8">
+          <span class="eyebrow">Brno · pre-seed · MVP live</span>
+          <h1 class="display text-5xl sm:text-6xl lg:text-7xl mt-6">
+            Infraštruktúra pre trh<br />
+            so <span class="text-teal italic">znalosťami</span>.
+          </h1>
+          <p class="mt-7 text-lg text-ink-muted max-w-prose leading-relaxed">
+            Školy strácajú dni v IS ESF. Firmy platia za <em>shelfware</em>, ktorý nikto nepoužíva.
+            Lektori predávajú namiesto toho, aby učili. EduLinker spája marketplace,
+            virtuálne rozpočty a OP JAK compliance do jedného systému — tak, aby vzdelávanie
+            opäť bolo o vzdelávaní.
+          </p>
+          <div class="mt-9 flex flex-wrap items-center gap-x-8 gap-y-3">
+            <a href="mailto:patrik@edulinker.cz?subject=Audit%20%E2%80%94%20EduLinker"
+               class="inline-flex items-center gap-2 text-sm font-medium bg-navy text-paper px-6 py-3.5 rounded-sm hover:bg-navy-mid transition-colors">
+              Dohodnúť audit (zadarmo) <span aria-hidden="true">→</span>
+            </a>
+            <a href="#piliers" class="linkish text-sm font-medium text-navy">Pozrieť, ako fungujeme</a>
+          </div>
+        </div>
+        <aside class="lg:col-span-4 border-l border-navy/15 pl-6 lg:pl-8 self-stretch flex flex-col justify-end">
+          <p class="text-xs uppercase tracking-[0.18em] text-ink-muted mb-3">Krátka verzia</p>
+          <p class="font-serif text-xl text-navy leading-snug">
+            „Nestaviame ďalšiu platformu. Staviame infraštruktúru pre trh so znalosťami."
+          </p>
+          <p class="mt-4 text-xs text-ink-muted">— interný brief pre tím, jeseň 2025</p>
+        </aside>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-5 sm:px-8"><div class="rule"></div></div>
+  </section>
+
+  <!-- TRI TVÁRE CHAOSU -->
+  <section class="max-w-6xl mx-auto px-5 sm:px-8 py-20">
+    <div class="grid lg:grid-cols-12 gap-10">
+      <header class="lg:col-span-4">
+        <span class="eyebrow">Diagnóza</span>
+        <h2 class="display text-3xl sm:text-4xl mt-5">Tri tváre vzdelávacieho chaosu.</h2>
+        <p class="mt-5 text-ink-muted leading-relaxed">
+          Roky sme sedeli s riaditeľmi škôl, CFO firiem a lektormi. Tri problémy
+          sa opakovali tak často, že sa stali konštantou. EduLinker rieši všetky tri.
+        </p>
+      </header>
+      <ol class="lg:col-span-8 grid sm:grid-cols-3 gap-px bg-navy/10 border border-navy/10">
+        <li class="bg-paper p-7">
+          <div class="font-serif text-3xl text-teal">I.</div>
+          <h3 class="font-medium text-navy mt-4">Informačná slepota</h3>
+          <p class="text-sm text-ink-muted mt-3 leading-relaxed">
+            Školy a firmy majú rozpočty, ale ponuka workshopov je roztrieštená cez
+            päť portálov a dvadsať PDF-iek. Výber je náhodný, dopad neoveriteľný.
+          </p>
+        </li>
+        <li class="bg-paper p-7">
+          <div class="font-serif text-3xl text-teal">II.</div>
+          <h3 class="font-medium text-navy mt-4">Byrokratické peklo</h3>
+          <p class="text-sm text-ink-muted mt-3 leading-relaxed">
+            Riaditeľka ZŠ nám popísala, že kvôli OP JAK auditu zbierala podklady
+            z piatich rôznych systémov. Indikátor 525102. Kalkulačka ZoR. Migrácia
+            kariet účastníka. <em>„Stále som si nebola istá správnosťou dát."</em>
+          </p>
+        </li>
+        <li class="bg-paper p-7">
+          <div class="font-serif text-3xl text-teal">III.</div>
+          <h3 class="font-medium text-navy mt-4">Mŕtve know-how</h3>
+          <p class="text-sm text-ink-muted mt-3 leading-relaxed">
+            Najcennejšie vedomosti sedia priamo vo firme — v seniorných ľuďoch.
+            Chýba systém, ktorý ich motivuje zdieľať s juniormi. Bez neho odchádzajú
+            do dôchodku s know-how v hlave.
+          </p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ČÍSLA -->
+  <section class="bg-navy text-paper">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8 py-20">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-8">
+        <div>
+          <div class="font-serif text-5xl tracking-tightest text-paper">9 mld</div>
+          <div class="text-xs uppercase tracking-[0.16em] text-paper/55 mt-3">CZK</div>
+          <p class="mt-3 text-sm text-paper/75 leading-relaxed">Alokácia OP JAK pre MŠ a ZŠ v ČR. Ďalšie 2 mld pre SŠ a VOŠ.</p>
+        </div>
+        <div>
+          <div class="font-serif text-5xl tracking-tightest text-paper">4 700+</div>
+          <div class="text-xs uppercase tracking-[0.16em] text-paper/55 mt-3">škôl s OP JAK</div>
+          <p class="mt-3 text-sm text-paper/75 leading-relaxed">spravuje aktívne dotačné projekty v 2026 — a všetky exportujú do IS ESF ručne.</p>
+        </div>
+        <div>
+          <div class="font-serif text-5xl tracking-tightest text-paper">20–30 %</div>
+          <div class="text-xs uppercase tracking-[0.16em] text-paper/55 mt-3">completion rate</div>
+          <p class="mt-3 text-sm text-paper/75 leading-relaxed">Priemer firemného e-learningu. Zvyšok je <em>shelfware</em>, mŕtve peniaze.</p>
+        </div>
+        <div>
+          <div class="font-serif text-5xl tracking-tightest text-paper">500 Kč</div>
+          <div class="text-xs uppercase tracking-[0.16em] text-paper/55 mt-3">/ faktúra</div>
+          <p class="mt-3 text-sm text-paper/75 leading-relaxed">Skrytý interný náklad na spracovanie jednej dodávateľskej faktúry za školenie.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PILIERE -->
+  <section id="piliers" class="max-w-6xl mx-auto px-5 sm:px-8 py-24">
+    <div class="grid lg:grid-cols-12 gap-10 mb-12">
+      <header class="lg:col-span-5">
+        <span class="eyebrow">Architektúra</span>
+        <h2 class="display text-3xl sm:text-4xl mt-5">Päť pilierov, jeden ekosystém.</h2>
+      </header>
+      <p class="lg:col-span-6 lg:col-start-7 text-ink-muted leading-relaxed self-end">
+        Nie monolit s funkciami nalepenými cez roky, ale API-first SaaS architektúra,
+        kde každý pilier samostatne rieši jeden bolestivý bod trhu a všetky sa sčítavajú
+        do jedného účtovne čistého produktu.
+      </p>
+    </div>
+    <ol class="border-t border-navy/10">
+      {pillars.map((p) => (
+        <li class="grid grid-cols-12 gap-6 py-8 border-b border-navy/10 group">
+          <div class="col-span-12 sm:col-span-1 font-serif text-2xl text-teal/80 tracking-tightest">{p.n}</div>
+          <div class="col-span-12 sm:col-span-4">
+            <h3 class="font-serif text-2xl text-navy tracking-tightest">{p.name}</h3>
+            <div class="text-[11px] uppercase tracking-[0.16em] text-ink-muted mt-2">{p.proof}</div>
+          </div>
+          <p class="col-span-12 sm:col-span-7 text-ink-muted leading-relaxed">{p.body}</p>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <!-- PRICING -->
+  <section class="bg-paper-tint border-y border-navy/10">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8 py-24">
+      <div class="grid lg:grid-cols-12 gap-10 mb-12">
+        <header class="lg:col-span-5">
+          <span class="eyebrow">Cenotvorba</span>
+          <h2 class="display text-3xl sm:text-4xl mt-5">Organizational Tiers.<br />Žiadne per-seat.</h2>
+        </header>
+        <div class="lg:col-span-6 lg:col-start-7">
+          <p class="pull">
+            Per-seat sa rozpadol pod vlastnou váhou. Atlassian na ňom v 2026 stratil
+            cez 60 % hodnoty. My naceňujeme za organizačnú hodnotu, nie za počet hláv.
+          </p>
+        </div>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-navy/10 border border-navy/10">
+        {tiers.map((t) => (
+          <article class={`bg-paper p-7 flex flex-col ${t.highlight ? 'lg:-mt-4 lg:-mb-4 lg:shadow-xl lg:shadow-navy/10' : ''}`}>
+            <h3 class="font-serif text-2xl text-navy tracking-tightest">{t.name}</h3>
+            <p class="text-[11px] uppercase tracking-[0.16em] text-ink-muted mt-1">{t.audience}</p>
+            <div class="mt-6">
+              <div class="font-serif text-3xl text-navy">{t.price}</div>
+              <div class="text-xs text-ink-muted mt-1">{t.unit}</div>
+            </div>
+            <ul class="mt-6 space-y-2 text-sm text-ink-muted flex-1">
+              {t.bullets.map((b) => (
+                <li class="flex gap-2"><span class="text-teal" aria-hidden="true">→</span>{b}</li>
+              ))}
+            </ul>
+            {t.note && (
+              <p class="mt-6 text-xs text-teal italic leading-relaxed border-t border-navy/10 pt-4">{t.note}</p>
+            )}
+          </article>
+        ))}
+      </div>
+      <p class="mt-8 text-sm text-ink-muted">
+        Marketplace lektorov je <a href="/pre-lektorov" class="linkish font-medium">samostatný model</a> — 10–20 % take rate, žiadny mesačný paušál.
+      </p>
+    </div>
+  </section>
+
+  <!-- TÍM -->
+  <section class="max-w-6xl mx-auto px-5 sm:px-8 py-24">
+    <div class="grid lg:grid-cols-12 gap-10 mb-12">
+      <header class="lg:col-span-5">
+        <span class="eyebrow">Tím</span>
+        <h2 class="display text-3xl sm:text-4xl mt-5">Šesť ľudí z Brna.<br />Pomer 3:3.</h2>
+      </header>
+      <p class="lg:col-span-6 lg:col-start-7 text-ink-muted leading-relaxed self-end">
+        Polovica tímu dodáva 12+ rokov enterprise systémy pre klientov z Fortune 500.
+        Druhá polovica vyrástla v rodinách učiteľov a riaditeľov škôl. To nie je
+        marketingový kompromis — to je dôvod, prečo EduLinker vznikol.
+      </p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-navy/10 border border-navy/10">
+      {founders.map((f) => (
+        <article class="bg-paper p-6">
+          <h3 class="font-serif text-xl text-navy">{f.name}</h3>
+          <div class="text-[11px] uppercase tracking-[0.16em] text-teal mt-1">{f.role}</div>
+          <p class="mt-4 text-sm text-ink-muted leading-relaxed">{f.note}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-paper-tint border-y border-navy/10">
+    <div class="max-w-4xl mx-auto px-5 sm:px-8 py-20">
+      <span class="eyebrow">Časté otázky</span>
+      <h2 class="display text-3xl sm:text-4xl mt-5 mb-10">Čo sa nás pýtajú najčastejšie.</h2>
+      <div class="space-y-3">
+        {faqs.map((f) => (
+          <details class="border border-navy/10 bg-paper rounded-sm group">
+            <summary class="cursor-pointer list-none p-5 flex items-start justify-between gap-6">
+              <span class="font-medium text-navy">{f.q}</span>
+              <span class="text-teal text-xl leading-none mt-0.5 group-open:rotate-45 transition-transform" aria-hidden="true">+</span>
+            </summary>
+            <p class="px-5 pb-5 text-ink-muted leading-relaxed">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="max-w-4xl mx-auto px-5 sm:px-8 py-24 text-center">
+    <span class="eyebrow justify-center">Ďalší krok</span>
+    <h2 class="display text-3xl sm:text-5xl mt-5">
+      Skills & Financial Audit.<br />Bez záväzku.
+    </h2>
+    <p class="mt-6 text-ink-muted max-w-prose mx-auto leading-relaxed">
+      90 minút online, dostanete tzv. <em>Bloody Report</em> — konkrétny zoznam finančných
+      únikov a hodín, ktoré tečú do byrokracie. Či sa rozhodnete pre EduLinker alebo nie,
+      audit si necháte.
+    </p>
+    <a href="mailto:patrik@edulinker.cz?subject=Audit%20%E2%80%94%20EduLinker"
+       class="mt-9 inline-flex items-center gap-2 text-sm font-medium bg-navy text-paper px-7 py-4 rounded-sm hover:bg-navy-mid transition-colors">
+      Napísať Patrikovi <span aria-hidden="true">→</span>
+    </a>
+    <p class="mt-5 text-xs text-ink-muted">Odpoveď zvyčajne do 24 hodín, podľa toho v ktorej škole práve sedíme.</p>
+  </section>
+</Base>

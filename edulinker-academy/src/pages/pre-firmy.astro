@@ -1,0 +1,256 @@
+---
+import Base from '../layouts/Base.astro';
+
+const variants = [
+  {
+    name: 'AI Quickscan',
+    format: '90 min · online',
+    audience: 'Prvý kontakt, scouting',
+    output: 'Prioritizovaná mapa príležitostí',
+    description: 'Systematicky prejdeme vaše procesy department po departmente. Pre každý spočítame opakovateľnosť, objem a štruktúrovanosť dát. Výstupom je AI Opportunity Map — 1–2 strany s top 5–8 procesmi vhodnými na automatizáciu.',
+  },
+  {
+    name: 'Workshop Lite',
+    format: '1 deň · 7 hodín',
+    audience: 'Firma 20–80 ľudí',
+    output: '1 fungujúca automatizácia + vyškolený Champion',
+    description: 'Postavíme spolu jednu jasne identifikovanú automatizáciu — naživo, počas dňa. Champion (váš interný človek) klikí, my navigujeme. Na konci dňa Champion prezentuje výsledok vedeniu.',
+    highlight: true,
+  },
+  {
+    name: 'Workshop Full',
+    format: '2 dni',
+    audience: 'Firma 80–500 ľudí',
+    output: '2–3 automatizácie + Champion programme + roadmapa',
+    description: 'Deň 1: hĺbkové mapovanie naprieč oddeleniami + prioritizácia. Deň 2: build sprint, testovanie, dokumentácia, 30/60/90 day roadmap. Vhodné keď máte viaceré bolestivé procesy a chcete strategický pohľad.',
+  },
+  {
+    name: 'AI Champion Mentoring',
+    format: '3 mes. · 2× call/mesiac',
+    audience: 'Follow-up po workshope',
+    output: 'Implementácia 2–4 ďalších automatizácií',
+    description: 'Bez follow-up je workshop len drahá motivačná seansa. Mentoring je ochranná sieť pre Championa: 45–60 min call dvakrát mesačne, riešime reálne blokery a stavíme ďalšie automatizácie.',
+  },
+];
+
+const industries = [
+  ['E-commerce', 'Automatická odpoveď na nové objednávky → notifikácia zákazníkovi + zápis do tabuľky → upomienka pre expedíciu.'],
+  ['Profesionálne služby', 'Prepis záznamu z klientského stretnutia (Whisper) → štruktúrovaný zápis s úlohami (Claude) → automatické odoslanie klientovi (Make.com).'],
+  ['HR a recruitment', 'Prijatý email s CV → extrahovanie kľúčových informácií → zápis do tracking tabuľky → automatická odpoveď kandidátovi.'],
+  ['Marketing', 'Nový blogpost → 5 variantov social media postov (Claude) → na schválenie manažérovi → po schválení zverejnenie.'],
+  ['Zákaznícka podpora', 'Príchodzí email → klasifikácia témy → návrh odpovede z FAQ databázy → na schválenie agentovi → odoslanie.'],
+  ['Finance a operations', 'Príchodzná faktúra emailom → extrakcia kľúčových polí → zápis do účtovníctva → notifikácia schvaľovateľovi.'],
+];
+---
+<Base
+  title="EduLinker Academy pre firmy — AI Champion Programme"
+  description="Workshopy pre firmy, ktoré odmietajú výhovorku, že AI nefunguje. Quickscan, Lite, Full, Mentoring. Champion stavia, my navigujeme. 80 % praxe, 20 % teórie."
+  ogPath="/pre-firmy"
+>
+  <section class="max-w-6xl mx-auto px-5 sm:px-8 pt-16 sm:pt-20 pb-20">
+    <div class="grid lg:grid-cols-12 gap-10">
+      <div class="lg:col-span-8">
+        <span class="eyebrow">AI Champion Programme</span>
+        <h1 class="display text-4xl sm:text-5xl lg:text-6xl mt-6">
+          AI nezavedieme.<br />
+          Naučíme vás, ako ju <span class="italic text-accent">zavediete sami</span>.
+        </h1>
+        <p class="mt-7 text-lg text-ink-muted leading-relaxed">
+          Väčšina AI projektov vo firmách zlyhá rovnako. Externý dodávateľ implementuje
+          nástroj, odíde, a po šiestich mesiacoch nikto netuší, ako to funguje. My to
+          robíme inak: identifikujeme, kde AI ušetrí peniaze, vyberieme jedného vášho
+          človeka — Championa — a naučíme ho to sám realizovať. Vy vlastníte výsledok.
+        </p>
+      </div>
+      <aside class="lg:col-span-4 self-end">
+        <div class="border-l-2 border-accent pl-5">
+          <p class="font-serif text-base text-navy leading-relaxed italic">
+            „Nesadne si k počítaču a nestaví to sám. Sedí vedľa Championa, on/ona kliká, ty hovoríš čo robiť. Ak to postavíš ty, nevie to opraviť. Ak to postavia oni — vlastnia to."
+          </p>
+          <p class="mt-3 text-xs text-ink-muted">— pravidlo č. 1 build sprintu</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- KTO JE CHAMPION -->
+  <section class="bg-paper-tint border-y border-navy/10">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8 py-20 grid lg:grid-cols-2 gap-12 items-start">
+      <div>
+        <span class="eyebrow">Profil ideálneho Championa</span>
+        <h2 class="display text-3xl mt-5">Nie IT riaditeľ. Operátor, ktorého kolegovia počúvajú.</h2>
+        <p class="mt-5 text-ink-muted leading-relaxed">
+          AI Champion je interný zamestnanec, ktorý rozumie procesom z operačného pohľadu
+          a má dobré komunikačné zručnosti. Nepotrebuje vedieť programovať. Nepotrebuje
+          IT vzdelanie. Potrebuje len mandát od vedenia a 20 % svojho času.
+        </p>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-6">
+        <div>
+          <h3 class="text-sm uppercase tracking-[0.16em] text-accent font-medium mb-4">Hľadáme</h3>
+          <ul class="space-y-2 text-sm text-ink-muted">
+            <li class="flex gap-2"><span class="text-accent" aria-hidden="true">✓</span>Operations Manager</li>
+            <li class="flex gap-2"><span class="text-accent" aria-hidden="true">✓</span>Projektový manažér</li>
+            <li class="flex gap-2"><span class="text-accent" aria-hidden="true">✓</span>Procesný analytik</li>
+            <li class="flex gap-2"><span class="text-accent" aria-hidden="true">✓</span>Energický junior s mandátom</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-sm uppercase tracking-[0.16em] text-ink-muted font-medium mb-4">Nie</h3>
+          <ul class="space-y-2 text-sm text-ink-muted">
+            <li class="flex gap-2"><span class="text-ink-faint" aria-hidden="true">✗</span>IT riaditeľ — ostatní ho nepočúvajú</li>
+            <li class="flex gap-2"><span class="text-ink-faint" aria-hidden="true">✗</span>HR manažér — odtrhnutý od procesov</li>
+            <li class="flex gap-2"><span class="text-ink-faint" aria-hidden="true">✗</span>Senior partner — nemá čas</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VARIANTY -->
+  <section class="max-w-6xl mx-auto px-5 sm:px-8 py-24">
+    <span class="eyebrow">Štyri varianty</span>
+    <h2 class="display text-3xl sm:text-4xl mt-5 mb-12">Vyberte si podľa veľkosti firmy a fázy.</h2>
+    <div class="grid md:grid-cols-2 gap-px bg-navy/10 border border-navy/10">
+      {variants.map((v) => (
+        <article class={`bg-paper p-7 flex flex-col ${v.highlight ? 'lg:bg-paper-tint' : ''}`}>
+          <header class="flex items-baseline justify-between gap-4">
+            <h3 class="font-serif text-2xl text-navy tracking-tightest">{v.name}</h3>
+            {v.highlight && <span class="text-[10px] uppercase tracking-[0.18em] text-accent font-semibold">najčastejšia voľba</span>}
+          </header>
+          <div class="text-[11px] uppercase tracking-[0.16em] text-ink-muted mt-2">{v.format} · {v.audience}</div>
+          <p class="mt-5 text-sm text-ink-muted leading-relaxed flex-1">{v.description}</p>
+          <div class="mt-6 border-t border-navy/10 pt-4">
+            <div class="text-[11px] uppercase tracking-[0.16em] text-ink-muted">Výstup</div>
+            <div class="font-medium text-navy text-sm mt-1">{v.output}</div>
+          </div>
+        </article>
+      ))}
+    </div>
+    <p class="mt-8 text-sm text-ink-muted max-w-prose">
+      Ceny na vyžiadanie — závisia od veľkosti firmy a špecifík vašich procesov.
+      Nemáme tu fixnú tabuľku, lebo ceny rovnaké pre firmu s 25 ľuďmi a 250 ľuďmi
+      by boli neúprimné na obe strany.
+    </p>
+  </section>
+
+  <!-- PRÍKLADY AUTOMATIZÁCIÍ -->
+  <section class="bg-navy text-paper">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8 py-20">
+      <span class="text-[11px] uppercase tracking-[0.18em] text-accent font-semibold">Príklady automatizácií</span>
+      <h2 class="display text-3xl sm:text-4xl text-paper mt-5 mb-12">Čo sme postavili v iných firmách.</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-paper/15 border border-paper/15">
+        {industries.map(([name, body]) => (
+          <article class="bg-navy-deep p-6">
+            <h3 class="font-serif text-lg text-accent">{name}</h3>
+            <p class="text-sm text-paper/80 mt-3 leading-relaxed">{body}</p>
+          </article>
+        ))}
+      </div>
+      <p class="mt-8 text-sm text-paper/55 max-w-prose">
+        Žiadny z týchto procesov nie je „rocket science". Sú to bežné, opakujúce sa veci,
+        ktoré niekto vo firme týždenne robí ručne. Práve preto fungujú tak dobre.
+      </p>
+    </div>
+  </section>
+
+  <!-- 30/60/90 -->
+  <section class="max-w-6xl mx-auto px-5 sm:px-8 py-24">
+    <div class="grid lg:grid-cols-12 gap-10 mb-12">
+      <header class="lg:col-span-5">
+        <span class="eyebrow">Čo sa stane po workshope</span>
+        <h2 class="display text-3xl sm:text-4xl mt-5">30/60/90 Day Plan.</h2>
+      </header>
+      <p class="lg:col-span-6 lg:col-start-7 text-ink-muted leading-relaxed self-end">
+        Workshopová energia vyprchá medzi 8. a 30. dňom — to je realita. Práve vtedy je
+        bežná práca silnejšia než nové projekty. Náš job je pomôcť Championovi prežiť toto okno.
+      </p>
+    </div>
+    <ol class="border-t border-navy/10">
+      <li class="grid grid-cols-12 gap-6 py-8 border-b border-navy/10">
+        <div class="col-span-12 sm:col-span-2 font-serif text-3xl text-accent tracking-tightest">30</div>
+        <div class="col-span-12 sm:col-span-10">
+          <h3 class="font-serif text-xl text-navy tracking-tightest">Stabilizácia + automatizácia #2</h3>
+          <p class="text-ink-muted mt-2 leading-relaxed">Otestovať dnešnú automatizáciu s reálnymi dátami, zaznamenať úsporu času, vybrať a postaviť automatizáciu č. 2.</p>
+        </div>
+      </li>
+      <li class="grid grid-cols-12 gap-6 py-8 border-b border-navy/10">
+        <div class="col-span-12 sm:col-span-2 font-serif text-3xl text-accent tracking-tightest">60</div>
+        <div class="col-span-12 sm:col-span-10">
+          <h3 class="font-serif text-xl text-navy tracking-tightest">ROI report + Champion sieť</h3>
+          <p class="text-ink-muted mt-2 leading-relaxed">Champion prezentuje výsledky vedeniu. Zapojiť 1–2 kolegov ako ďalších Championov. Postaviť automatizáciu č. 3.</p>
+        </div>
+      </li>
+      <li class="grid grid-cols-12 gap-6 py-8 border-b border-navy/10">
+        <div class="col-span-12 sm:col-span-2 font-serif text-3xl text-accent tracking-tightest">90</div>
+        <div class="col-span-12 sm:col-span-10">
+          <h3 class="font-serif text-xl text-navy tracking-tightest">Interná AI session + roadmap</h3>
+          <p class="text-ink-muted mt-2 leading-relaxed">Champion drží 15-min AI session pre svoj tím na pravidelnej porade. 5+ dokumentovaných automatizácií. Návrh ďalšieho rozsahu pre vedenie.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- OBJECTIONS -->
+  <section class="bg-paper-tint border-y border-navy/10">
+    <div class="max-w-4xl mx-auto px-5 sm:px-8 py-20">
+      <span class="eyebrow">Námietky, ktoré dostávame</span>
+      <h2 class="display text-3xl sm:text-4xl mt-5 mb-10">Bežné obavy a naše odpovede.</h2>
+      <div class="space-y-3">
+        <details class="border border-navy/10 bg-paper rounded-sm group">
+          <summary class="cursor-pointer list-none p-5 flex justify-between gap-6">
+            <span class="font-medium text-navy">Máme IT oddelenie, nech to spravia oni.</span>
+            <span class="text-accent text-xl group-open:rotate-45 transition-transform" aria-hidden="true">+</span>
+          </summary>
+          <p class="px-5 pb-5 text-ink-muted leading-relaxed">
+            IT oddelenie je plné projektmi. A AI Champion programme nie je IT projekt —
+            je to operačná zmena. IT vyrieši infraštruktúru. Champion vyrieši procesy. Sú to rôzne role.
+          </p>
+        </details>
+        <details class="border border-navy/10 bg-paper rounded-sm group">
+          <summary class="cursor-pointer list-none p-5 flex justify-between gap-6">
+            <span class="font-medium text-navy">Bojíme sa o dáta a bezpečnosť.</span>
+            <span class="text-accent text-xl group-open:rotate-45 transition-transform" aria-hidden="true">+</span>
+          </summary>
+          <p class="px-5 pb-5 text-ink-muted leading-relaxed">
+            Správne obavy. Preto presne definujeme, kde sa používa verejný ChatGPT a kde
+            potrebujete privátne riešenie. Diskusia o bezpečnosti je súčasť workshopu, nie afterthought.
+          </p>
+        </details>
+        <details class="border border-navy/10 bg-paper rounded-sm group">
+          <summary class="cursor-pointer list-none p-5 flex justify-between gap-6">
+            <span class="font-medium text-navy">Čo ak AI Champion odíde?</span>
+            <span class="text-accent text-xl group-open:rotate-45 transition-transform" aria-hidden="true">+</span>
+          </summary>
+          <p class="px-5 pb-5 text-ink-muted leading-relaxed">
+            Preto je dokumentácia povinná súčasť každej automatizácie. A preto odporúčame
+            mať dvoch Championov — zálohu. Toto plánujeme od prvého dňa.
+          </p>
+        </details>
+        <details class="border border-navy/10 bg-paper rounded-sm group">
+          <summary class="cursor-pointer list-none p-5 flex justify-between gap-6">
+            <span class="font-medium text-navy">Robia to rovnako konzultanti za menej peňazí.</span>
+            <span class="text-accent text-xl group-open:rotate-45 transition-transform" aria-hidden="true">+</span>
+          </summary>
+          <p class="px-5 pb-5 text-ink-muted leading-relaxed">
+            Konzultanti vám niečo nastavia a odídu. Výsledok po šiestich mesiacoch? Nikto nevie,
+            ako to funguje, nikto to nepoužíva. Náš výsledok je vaša interná kapacita —
+            to je fundamentálne iný produkt.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-4xl mx-auto px-5 sm:px-8 py-24 text-center">
+    <h2 class="display text-3xl sm:text-4xl">Začneme Quickscanom.</h2>
+    <p class="mt-6 text-ink-muted max-w-prose mx-auto leading-relaxed">
+      90-minútový online audit, kde uvidíme, kde sa AI vám reálne oplatí.
+      Pre prvých 10 klientov v 2026 ho robíme bezplatne — výmenou za detailný feedback.
+    </p>
+    <a href="mailto:patrik@edulinker.cz?subject=Academy%20%E2%80%94%20Quickscan"
+       class="mt-9 inline-flex items-center gap-2 text-sm font-medium bg-accent text-paper px-7 py-4 rounded-sm hover:bg-accent-ink transition-colors">
+      Dohodnúť Quickscan <span aria-hidden="true">→</span>
+    </a>
+  </section>
+</Base>

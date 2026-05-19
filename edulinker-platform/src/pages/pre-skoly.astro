@@ -1,0 +1,129 @@
+---
+import Base from '../layouts/Base.astro';
+
+const painPoints = [
+  {
+    title: 'Indikátor 525102 a 600 000',
+    body: 'Vykazovanie účastníkov musí byť bezchybné. Od februára 2025 ich riadiaci orgán uznáva len cez IS ESF — manuálna editácia v ISKP21+ skončila.',
+  },
+  {
+    title: 'Migračný nástroj IS ESF',
+    body: 'Školy, ktoré založili karty účastníkov pred spustením IS ESF, majú v jednom projekte paralelne karty s evidenčným číslom aj bez neho. Manuálna synchronizácia je nočná mora.',
+  },
+  {
+    title: 'Kalkulačka ZoR sa mení',
+    body: 'Riadiaci orgán zverejnil aktualizovanú Kalkulačku v marci 2025. Školy pracujú s nástrojom, ktorý sa mení počas prebiehajúcich projektov.',
+  },
+  {
+    title: 'Dve vlny súbežne',
+    body: 'V 2026 mnoho škôl realizuje OP JAK projekty z prvej aj druhej vlny zároveň — s odlišnými pravidlami vykazovania.',
+  },
+];
+
+const features = [
+  ['Generátor Karty účastníka', 'Bezpapierové vytvorenie karty, elektronický audit-trail, vstupné a výstupné podpisy v súlade s IS ESF 2021+.'],
+  ['Jedno-klikové exporty', 'Import_*.csv a Podpory_*.csv vo formáte priamo nahrateľnom do IS ESF. Bez ručného prepisovania.'],
+  ['Live monitoring indikátorov', '525102 (vzdělávané osoby) a 600000 (celkový počet účastníkov) sa rátajú v reálnom čase. Vidíte, či ste v pláne.'],
+  ['Sledovanie šablón', 'Virtuálna Kalkulačka ZoR sleduje čerpanie každej šablóny a pripravuje podklady pre Zprávu o realizaci.'],
+  ['Marketplace s overenými lektormi', 'Workshopy oprávnené ako šablónové aktivity, s pripravenou dokumentáciou pre audit.'],
+  ['Mobile-first', 'Riaditelia škôl nesedia za stolom celý deň. Všetko funguje z telefónu — vrátane podpisov.'],
+];
+---
+<Base
+  title="EduLinker pre školy — OP JAK Compliance Engine"
+  description="Karta účastníka, indikátor 525102, IS ESF 2021+ exporty a Zpráva o realizaci na jeden klik. EduLinker prevezme byrokraciu OP JAK z plecí škôl."
+  ogPath="/pre-skoly"
+>
+  <section class="max-w-6xl mx-auto px-5 sm:px-8 pt-16 sm:pt-20 pb-20">
+    <div class="max-w-3xl">
+      <span class="eyebrow">Pre školy · OP JAK · IS ESF 2021+</span>
+      <h1 class="display text-4xl sm:text-5xl lg:text-6xl mt-6">
+        Byrokratický štít pre&nbsp;OP&nbsp;JAK.
+      </h1>
+      <p class="mt-7 text-lg text-ink-muted leading-relaxed">
+        Riaditelia škôl trávia desiatky hodín mesačne ručným zbieraním podkladov,
+        len aby preukázali, že peniaze, ktoré dostali, naozaj minuli na vzdelávanie.
+        EduLinker tento proces digitalizuje — od Karty účastníka po finálny export do IS ESF.
+      </p>
+      <div class="mt-9 flex flex-wrap items-center gap-x-8 gap-y-3">
+        <a href="mailto:patrik@edulinker.cz?subject=OP%20JAK%20%E2%80%94%20pilot"
+           class="inline-flex items-center gap-2 text-sm font-medium bg-navy text-paper px-6 py-3.5 rounded-sm hover:bg-navy-mid transition-colors">
+          Pilot pre vašu školu <span aria-hidden="true">→</span>
+        </a>
+        <a href="/cennik" class="linkish text-sm font-medium text-navy">Cenník EDU plánu</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-paper-tint border-y border-navy/10">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8 py-16 grid lg:grid-cols-2 gap-12 items-start">
+      <div>
+        <span class="eyebrow">Skutočná bolesť</span>
+        <h2 class="display text-3xl mt-5">Čo sa zmenilo vo februári 2025.</h2>
+        <p class="mt-5 text-ink-muted leading-relaxed">
+          V záverečných správach o realizácii podávaných od 1. februára 2025 sú príjemcovia
+          povinní vykazovať dosiahnutú hodnotu indikátora 600 000 výhradne prostredníctvom
+          IS ESF. Predchádzajúca manuálna editácia cez excelový súbor <em>Súhrn účastníkov</em>
+          už nie je akceptovateľná.
+        </p>
+        <p class="mt-4 text-ink-muted leading-relaxed">
+          Akákoľvek formálna chyba alebo preklep môže viesť k tomu, že výdavky nie sú uznané
+          a škola musí vrátiť dotáciu — likvidačná situácia pre rozpočet verejnej inštitúcie.
+        </p>
+      </div>
+      <ul class="border-l border-navy/15 pl-6 space-y-6">
+        {painPoints.map((p) => (
+          <li>
+            <h3 class="font-medium text-navy">{p.title}</h3>
+            <p class="text-sm text-ink-muted mt-2 leading-relaxed">{p.body}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="max-w-6xl mx-auto px-5 sm:px-8 py-24">
+    <span class="eyebrow">Compliance Engine</span>
+    <h2 class="display text-3xl sm:text-4xl mt-5 mb-12">Čo presne za vás urobí.</h2>
+    <div class="grid md:grid-cols-2 gap-px bg-navy/10 border border-navy/10">
+      {features.map(([title, body]) => (
+        <article class="bg-paper p-7">
+          <h3 class="font-serif text-xl text-navy tracking-tightest">{title}</h3>
+          <p class="text-sm text-ink-muted mt-3 leading-relaxed">{body}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="bg-navy text-paper">
+    <div class="max-w-4xl mx-auto px-5 sm:px-8 py-20">
+      <span class="text-[11px] uppercase tracking-[0.18em] text-paper/55">Stabilita biznis modelu</span>
+      <h2 class="display text-3xl sm:text-4xl text-paper mt-5">Čo po roku 2027?</h2>
+      <p class="mt-6 text-paper/80 leading-relaxed">
+        OP JAK končí 2027. Európska komisia ale v lete 2025 predstavila Viacročný finančný
+        rámec MFF 2028–2034 — takmer 2 bilióny EUR. Rozpočet Erasmus+ sa zdvojnásobuje
+        na 40,8 mld EUR, s rozšíreným mandátom na reskilling pracovnej sily.
+      </p>
+      <p class="mt-4 text-paper/80 leading-relaxed">
+        EduLinker Compliance Engine je parametricky konfigurovateľný. Keď národné agentúry
+        zverejnia formáty pre nové programy, upravíme mapovacie schémy — školy nemenia systém.
+      </p>
+      <p class="mt-8 text-sm text-paper/55">
+        Pre vašu školu to znamená: nakupujete nástroj na desať rokov, nie na jeden cyklus.
+      </p>
+    </div>
+  </section>
+
+  <section class="max-w-4xl mx-auto px-5 sm:px-8 py-24 text-center">
+    <h2 class="display text-3xl sm:text-4xl">Pilotná séria má voľné miesta.</h2>
+    <p class="mt-6 text-ink-muted max-w-prose mx-auto leading-relaxed">
+      Pre prvých 5 škôl pripravujeme implementáciu s individuálnym onboardingom a zľavnenou
+      cenou výmenou za detailný feedback. Ideálne pre školy v Juhomoravskom kraji — môžeme
+      prísť osobne.
+    </p>
+    <a href="mailto:patrik@edulinker.cz?subject=OP%20JAK%20%E2%80%94%20pilot%20pre%20%C5%A1kolu"
+       class="mt-9 inline-flex items-center gap-2 text-sm font-medium bg-navy text-paper px-7 py-4 rounded-sm hover:bg-navy-mid transition-colors">
+      Prihlásiť školu do pilotu <span aria-hidden="true">→</span>
+    </a>
+  </section>
+</Base>

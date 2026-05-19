@@ -1,0 +1,198 @@
+---
+import Base from '../layouts/Base.astro';
+
+const tiers = [
+  {
+    name: 'EduLinker EDU',
+    audience: 'MŠ · ZŠ · SŠ s OP JAK',
+    price: '30–60 000 CZK',
+    unit: 'ročne · inštitucionálna licencia',
+    includes: [
+      'Karta účastníka v digitálnej podobe',
+      'IS ESF 2021+ exporty (.csv, .xml)',
+      'Live monitoring indikátorov 525102 + 600000',
+      'Virtuálna Kalkulačka ZoR',
+      'Prístup pre celý učiteľský zbor (žiadne per-seat)',
+      'Marketplace overených lektorov',
+      'Onboarding s naším tímom',
+    ],
+    footnote: 'Plne uhradiateľné z manažérskej a administratívnej réžie OP JAK šablón. Pre vašu školu bez priameho rozpočtového dopadu.',
+  },
+  {
+    name: 'Starter',
+    audience: 'SME · do 100 zamestnancov',
+    price: '4 900 CZK',
+    unit: '/ mesiac · fixne, bez per-seat',
+    includes: [
+      'Marketplace s overenými lektormi',
+      'Virtuálne wallets pre 3 oddelenia',
+      'Konsolidovaná mesačná faktúra',
+      'Schvaľovanie cez Teams alebo Slack',
+      'Základné ROI reporty',
+      'Email podpora',
+    ],
+    footnote: 'Mesačné platby. Výpoveď s 30-dňovou výpovednou lehotou.',
+  },
+  {
+    name: 'Growth',
+    audience: 'SME · 100–500 zamestnancov',
+    price: '12 900 CZK',
+    unit: '/ mes. + 0,5 % z objemu transakcií',
+    includes: [
+      'Všetko zo Starter plánu',
+      'Neobmedzený počet oddelení a wallets',
+      'Integrácia s Active Directory / Azure AD',
+      'Stripe Connect — peniaze priamo lektorom',
+      'Pokročilé analytics a Time-to-Competency',
+      'Compliance reporty pre HR a auditovateľnosť',
+      'Dedikovaný account manager',
+    ],
+    highlight: true,
+    footnote: 'Ročná zmluva s 60-dňovým try-before-you-buy. Plný refund ak nesedíme.',
+  },
+  {
+    name: 'Scale',
+    audience: 'Enterprise · 500+',
+    price: 'Custom',
+    unit: '~1–2 % zo spravovaného L&D budgetu',
+    includes: [
+      'AI kompetenčný engine (roll-out 2027)',
+      'Skill Framework mapping pre celú firmu',
+      'Vlastná inštancia / On-prem option',
+      'API-first integrácie podľa potreby',
+      'SLA s dedikovaným success tímom',
+      'Reskilling roadmapy a kompetenčné audity',
+    ],
+    footnote: 'Špecializované zmluvy podľa náročnosti. Začíname Skills & Financial Auditom.',
+  },
+];
+
+const marketplace = {
+  name: 'Marketplace lektorov',
+  description: 'Pre OSVČ, vzdelávacie agentúry a samostatných expertov. Nie predplatné — provízny model.',
+  rate: '10–20 %',
+  unit: 'take rate z reálne zazmluvnenej hodiny',
+  bullets: [
+    'Žiadny fixný mesačný poplatok',
+    'Provízia len z reálne uskutočnenej fakturácie',
+    'V Roku 2: priame platby cez Stripe Connect',
+    'Profesionálny profil s referenciami a kalendárom',
+  ],
+};
+---
+<Base
+  title="Cenník EduLinker — Organizational Tiers"
+  description="Cenník EduLinker plánov EDU, Starter, Growth, Scale a Marketplace. Organizational Tiers model — žiadne per-seat."
+  ogPath="/cennik"
+>
+  <section class="max-w-6xl mx-auto px-5 sm:px-8 pt-16 sm:pt-20 pb-12">
+    <div class="grid lg:grid-cols-12 gap-10">
+      <div class="lg:col-span-7">
+        <span class="eyebrow">Cenník · platí od 2026</span>
+        <h1 class="display text-4xl sm:text-5xl lg:text-6xl mt-6">
+          Organizational Tiers.<br />Čisto, bez prekvapení.
+        </h1>
+        <p class="mt-7 text-lg text-ink-muted leading-relaxed">
+          Naceňujeme za organizačnú hodnotu a objem peňazí pretekajúci platformou —
+          nie za počet hláv. Keď k vám nastúpi nový kolega, neplatíte za neho navyše.
+        </p>
+      </div>
+      <aside class="lg:col-span-5 self-end">
+        <p class="pull">
+          „Atlassian na per-seat modeli v 2026 stratil cez 60 % hodnoty. Stavať
+          biznis na zastaranom modeli sme nemali záujem."
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="max-w-6xl mx-auto px-5 sm:px-8 pb-20">
+    <div class="grid md:grid-cols-2 gap-px bg-navy/10 border border-navy/10">
+      {tiers.map((t) => (
+        <article class={`bg-paper p-8 flex flex-col ${t.highlight ? 'md:bg-paper-tint' : ''}`}>
+          <header class="flex items-baseline justify-between gap-4 mb-1">
+            <h2 class="font-serif text-2xl text-navy tracking-tightest">{t.name}</h2>
+            {t.highlight && <span class="text-[10px] uppercase tracking-[0.18em] text-teal font-medium">naša odpoveď trhu</span>}
+          </header>
+          <p class="text-[11px] uppercase tracking-[0.16em] text-ink-muted">{t.audience}</p>
+          <div class="mt-7">
+            <div class="font-serif text-4xl text-navy">{t.price}</div>
+            <div class="text-sm text-ink-muted mt-1">{t.unit}</div>
+          </div>
+          <ul class="mt-8 space-y-2.5 text-sm text-ink-muted flex-1">
+            {t.includes.map((b) => (
+              <li class="flex gap-3"><span class="text-teal mt-0.5" aria-hidden="true">→</span>{b}</li>
+            ))}
+          </ul>
+          <p class="mt-8 text-xs text-ink-muted italic leading-relaxed border-t border-navy/10 pt-5">{t.footnote}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="bg-paper-tint border-y border-navy/10">
+    <div class="max-w-4xl mx-auto px-5 sm:px-8 py-16">
+      <div class="grid sm:grid-cols-12 gap-8 items-start">
+        <div class="sm:col-span-5">
+          <span class="eyebrow">{marketplace.description}</span>
+          <h2 class="display text-3xl mt-5">{marketplace.name}</h2>
+        </div>
+        <div class="sm:col-span-7">
+          <div class="font-serif text-5xl text-navy tracking-tightest">{marketplace.rate}</div>
+          <div class="text-sm text-ink-muted mt-1">{marketplace.unit}</div>
+          <ul class="mt-6 space-y-2 text-sm text-ink-muted">
+            {marketplace.bullets.map((b) => (
+              <li class="flex gap-3"><span class="text-teal" aria-hidden="true">→</span>{b}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-4xl mx-auto px-5 sm:px-8 py-20">
+    <h2 class="display text-2xl sm:text-3xl mb-6">Často sa pýtate</h2>
+    <div class="space-y-3">
+      <details class="border border-navy/10 bg-paper rounded-sm group">
+        <summary class="cursor-pointer list-none p-5 flex justify-between gap-6">
+          <span class="font-medium text-navy">Prečo nemáte „Most popular" badge?</span>
+          <span class="text-teal text-xl group-open:rotate-45 transition-transform" aria-hidden="true">+</span>
+        </summary>
+        <p class="px-5 pb-5 text-ink-muted leading-relaxed">
+          Pretože „Most popular" je marketingový trik, ktorý naceňovacia tabuľka má nahnať vás
+          do jedného konkrétneho plánu. Naše plány majú jasné kritériá podľa veľkosti
+          organizácie — vyberte ten, ktorý zodpovedá vašej realite.
+        </p>
+      </details>
+      <details class="border border-navy/10 bg-paper rounded-sm group">
+        <summary class="cursor-pointer list-none p-5 flex justify-between gap-6">
+          <span class="font-medium text-navy">Môžeme platiť ročne s odplývaním?</span>
+          <span class="text-teal text-xl group-open:rotate-45 transition-transform" aria-hidden="true">+</span>
+        </summary>
+        <p class="px-5 pb-5 text-ink-muted leading-relaxed">
+          Áno — pri ročnej platbe vopred dostávate 10 % zľavu. Štandardne to ale neprezentujeme,
+          pretože pre väčšinu klientov je mesačný cashflow lepšie predvídateľný.
+        </p>
+      </details>
+      <details class="border border-navy/10 bg-paper rounded-sm group">
+        <summary class="cursor-pointer list-none p-5 flex justify-between gap-6">
+          <span class="font-medium text-navy">Nemôžem si urobiť custom plán?</span>
+          <span class="text-teal text-xl group-open:rotate-45 transition-transform" aria-hidden="true">+</span>
+        </summary>
+        <p class="px-5 pb-5 text-ink-muted leading-relaxed">
+          Pri Scale segmente vždy. Pri Starter / Growth len ak máte naozaj špecifickú situáciu
+          (napr. holding s troma dcérami pod jednou strechou). Napíšte, vyriešime.
+        </p>
+      </details>
+    </div>
+  </section>
+
+  <section class="max-w-4xl mx-auto px-5 sm:px-8 py-20 text-center">
+    <h2 class="display text-3xl sm:text-4xl">Stále neistí, ktorý plán?</h2>
+    <p class="mt-6 text-ink-muted">Discovery hovor zaberie 20 minút a väčšinu nejasností vyrieši.</p>
+    <a href="mailto:patrik@edulinker.cz?subject=Cenn%C3%ADk%20%E2%80%94%20kt%C3%BD%20pl%C3%A1n%20pre%20n%C3%A1s"
+       class="mt-7 inline-flex items-center gap-2 text-sm font-medium bg-navy text-paper px-7 py-4 rounded-sm hover:bg-navy-mid transition-colors">
+      Spýtať sa Patrika <span aria-hidden="true">→</span>
+    </a>
+  </section>
+</Base>
