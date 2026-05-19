@@ -42,6 +42,13 @@ Stránka je čisto statická (Astro generuje `dist/` s HTML, CSS, malými JS chu
 - **Netlify / Vercel / Cloudflare Pages**: drag-drop priečinok `dist/`, alebo napojiť repo a build command `npm run build`.
 - **GitHub Pages**: build a pushni `dist/` na `gh-pages` vetvu.
 
+### Multi-doména (cz/sk/pl)
+
+`astro.config.mjs` má `site: 'https://edulinker.cz'` ako kanonickú doménu. Doménky
+`edulinker.sk` a `edulinker.pl` možno nasmerovať na rovnaký hosting cez DNS A/CNAME
+záznam — obsah je identický a kanonická URL sa vždy vráti na `.cz`. Keď budú jazykové
+mutácie, pridáme `hreflang` alternatívy a samostatné lokalizované buildy.
+
 ## Brand
 
 - `--navy` `#0F2A47` — hlavná farba textu a hlavičky
