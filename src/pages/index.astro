@@ -1,0 +1,204 @@
+---
+import Base from '../layouts/Base.astro';
+
+const tracks = [
+  {
+    tag: 'Pre školy',
+    title: 'AI pre učiteľov: menej byrokracie, viac učenia.',
+    body: 'Workshop pre celú zborovňu. 3,5 hodiny. Každý učiteľ odchádza s 5 funkčnými promptmi, ktoré použije zajtra. Žiadne všeobecnosti, žiadne „AI revolúcia" slajdy.',
+    bullets: ['3,5h · celá zborovňa', '10–25 učiteľov', 'OP JAK kompatibilné', 'Vytlačený Prompt Playbook'],
+    cta: 'Pre školy →',
+    href: '/pre-skoly',
+  },
+  {
+    tag: 'Pre firmy',
+    title: 'AI Champion Programme.',
+    body: 'Neprichádzame implementovať systémy. Prichádzame pomôcť vašej firme identifikovať, kde AI ušetrí peniaze a čas — a naučiť interného človeka, ako to sám zrealizuje. Quickscan, Lite, Full, Mentoring.',
+    bullets: ['90 min Quickscan', '1 deň Lite', '2 dni Full', '3 mesiace Mentoring'],
+    cta: 'Pre firmy →',
+    href: '/pre-firmy',
+  },
+];
+
+const principles = [
+  {
+    n: '01',
+    title: 'Champion stavia, my navigujeme.',
+    body: 'Najdôležitejší princíp celého workshopu. Nesadáme za počítač a nestaviame za vás. Sedíme vedľa, vy klikáte, my hovoríme čo robiť. Ak to postavíme my, nedokážete to opraviť. Ak to postavíte vy — vlastníte to.',
+  },
+  {
+    n: '02',
+    title: '20 % teórie. 80 % praxe.',
+    body: 'Ako EduLinker Academy odmietame pasívne školenia. Účastníci prinášajú reálne firemné dáta a vlastnú administratívnu úlohu. Workshop ich rieši, nie ilustruje. Toto sa volá productive struggle — a je dôvodom, prečo si ľudia obsah pamätajú.',
+  },
+  {
+    n: '03',
+    title: 'Dokumentácia rovnako dôležitá ako build.',
+    body: 'Automatizácia bez dokumentácie je závislosť na jednom človeku. Ak Champion odíde, nikto nevie, čo to robí. Každá automatizácia má písomný plán — čo robí, prečo existuje, čo robiť keď nefunguje.',
+  },
+];
+
+const proofPoints = [
+  { number: '5+', label: 'Pilotných workshopov · Q2–Q3 2026' },
+  { number: '80 %', label: 'cieľová miera Championov aktívnych po 30 dňoch' },
+  { number: '8/10', label: 'cieľový NPS od účastníkov' },
+  { number: '3×', label: 'minimálne ROI klienta do 90 dní' },
+];
+---
+<Base title="EduLinker Academy — Nevytvárame závislosť, vytvárame kapacitu" ogPath="/">
+  <!-- HERO -->
+  <section class="relative">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8 pt-16 sm:pt-24 pb-20">
+      <div class="grid lg:grid-cols-12 gap-10 lg:gap-16 items-end">
+        <div class="lg:col-span-8">
+          <span class="eyebrow">Workshopy · Brno · Q2–Q3 2026</span>
+          <h1 class="display text-5xl sm:text-6xl lg:text-7xl mt-6">
+            Nevytvárame závislosť.<br />
+            <span class="text-accent italic">Vytvárame kapacitu.</span>
+          </h1>
+          <p class="mt-7 text-lg text-ink-muted max-w-prose leading-relaxed">
+            Väčšina AI projektov vo firmách zlyhá z rovnakého dôvodu: externe implementovaný
+            nástroj bez interného vlastníka. Konzultant odíde, systém sa prestane používať,
+            firma si myslí, že „AI nefunguje". My to robíme inak — naučíme jedného vášho
+            človeka tak, že to po nás zvládne sám.
+          </p>
+          <div class="mt-9 flex flex-wrap items-center gap-x-8 gap-y-3">
+            <a href="mailto:patrik@edulinker.cz?subject=Academy%20%E2%80%94%2015-min%20call"
+               class="inline-flex items-center gap-2 text-sm font-medium bg-accent text-paper px-6 py-3.5 rounded-sm hover:bg-accent-ink transition-colors">
+              Dohodnúť 15-min call <span aria-hidden="true">→</span>
+            </a>
+            <a href="#filozofia" class="linkish text-sm font-medium text-navy">Naša filozofia</a>
+          </div>
+        </div>
+        <aside class="lg:col-span-4 border-l border-navy/15 pl-6 lg:pl-8 self-stretch flex flex-col justify-end">
+          <p class="text-xs uppercase tracking-[0.18em] text-ink-muted mb-3">Tagline interne</p>
+          <p class="font-serif text-xl text-navy leading-snug">
+            „Konzultant odíde, systém sa prestane používať, firma si myslí, že AI nefunguje. Tomu sme sa rozhodli zabrániť."
+          </p>
+          <p class="mt-4 text-xs text-ink-muted">— úvod corporate playbooku, mar. 2026</p>
+        </aside>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-5 sm:px-8"><div class="rule"></div></div>
+  </section>
+
+  <!-- DVE CESTY -->
+  <section class="max-w-6xl mx-auto px-5 sm:px-8 py-20">
+    <div class="grid lg:grid-cols-12 gap-10 mb-12">
+      <header class="lg:col-span-5">
+        <span class="eyebrow">Dva produkty, jedna filozofia</span>
+        <h2 class="display text-3xl sm:text-4xl mt-5">Pre koho robíme workshopy.</h2>
+      </header>
+      <p class="lg:col-span-6 lg:col-start-7 text-ink-muted leading-relaxed self-end">
+        Dve veľmi odlišné publiká — učitelia v zborovni a manažéri v open-space.
+        Rovnaký princíp: praktický výstup, ktorý použijete druhý deň. Ostatné je kozmetika.
+      </p>
+    </div>
+    <div class="grid md:grid-cols-2 gap-px bg-navy/10 border border-navy/10">
+      {tracks.map((t) => (
+        <a href={t.href} class="bg-paper p-10 group hover:bg-paper-tint transition-colors flex flex-col">
+          <span class="eyebrow">{t.tag}</span>
+          <h3 class="font-serif text-3xl text-navy tracking-tightest mt-5 group-hover:text-accent-ink transition-colors">{t.title}</h3>
+          <p class="mt-5 text-ink-muted leading-relaxed flex-1">{t.body}</p>
+          <ul class="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-[12px] text-ink-muted">
+            {t.bullets.map((b) => <li class="flex items-center gap-2"><span class="w-1 h-1 bg-accent rounded-full" aria-hidden="true"></span>{b}</li>)}
+          </ul>
+          <span class="mt-8 text-sm font-medium text-accent group-hover:translate-x-1 transition-transform inline-block">{t.cta}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- FILOZOFIA -->
+  <section id="filozofia" class="bg-navy text-paper">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8 py-24">
+      <div class="grid lg:grid-cols-12 gap-10 mb-12">
+        <header class="lg:col-span-5">
+          <span class="text-[11px] uppercase tracking-[0.18em] text-accent font-semibold">Tri princípy</span>
+          <h2 class="display text-3xl sm:text-4xl text-paper mt-5">Prečo to funguje.</h2>
+        </header>
+        <p class="lg:col-span-6 lg:col-start-7 text-paper/75 leading-relaxed self-end">
+          Tieto tri vety pochádzajú z našich interných playbookov. Nepíšeme ich na nástenku
+          kvôli efektu — sú to filtre, podľa ktorých sa rozhodujeme počas každého workshopu.
+        </p>
+      </div>
+      <ol class="border-t border-paper/15">
+        {principles.map((p) => (
+          <li class="grid grid-cols-12 gap-6 py-8 border-b border-paper/15">
+            <div class="col-span-12 sm:col-span-1 font-serif text-3xl text-accent tracking-tightest">{p.n}</div>
+            <h3 class="col-span-12 sm:col-span-4 font-serif text-2xl text-paper tracking-tightest">{p.title}</h3>
+            <p class="col-span-12 sm:col-span-7 text-paper/75 leading-relaxed">{p.body}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- PROOF -->
+  <section class="max-w-6xl mx-auto px-5 sm:px-8 py-20">
+    <div class="grid lg:grid-cols-12 gap-10 mb-10">
+      <header class="lg:col-span-5">
+        <span class="eyebrow">Čo plánujeme dosiahnuť</span>
+        <h2 class="display text-3xl sm:text-4xl mt-5">Pilotná séria 2026.</h2>
+      </header>
+      <p class="lg:col-span-6 lg:col-start-7 text-ink-muted leading-relaxed self-end">
+        Sme úprimní — sme v ranej fáze. Žiadne falošné „Trusted by 10 000+ companies".
+        Toto sú reálne ciele pre prvých 5 workshopov, ktoré spúšťame od jari 2026.
+      </p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-8 border-t border-navy/10 pt-10">
+      {proofPoints.map((p) => (
+        <div>
+          <div class="font-serif text-5xl tracking-tightest text-navy">{p.number}</div>
+          <p class="mt-3 text-sm text-ink-muted leading-relaxed">{p.label}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- POSITION VS OSTATNÉ -->
+  <section class="bg-paper-tint border-y border-navy/10">
+    <div class="max-w-5xl mx-auto px-5 sm:px-8 py-20">
+      <span class="eyebrow">V čom sme iní</span>
+      <h2 class="display text-3xl sm:text-4xl mt-5 mb-10">Ako sa líšime od typického „AI školenia".</h2>
+      <div class="grid md:grid-cols-2 gap-10">
+        <div>
+          <h3 class="font-medium text-navy mb-4 text-sm uppercase tracking-[0.16em]">Bežný workshop</h3>
+          <ul class="space-y-3 text-ink-muted text-sm leading-relaxed">
+            <li class="flex gap-3"><span class="text-ink-faint" aria-hidden="true">✗</span>Generická prezentácia o tom, čo je AI</li>
+            <li class="flex gap-3"><span class="text-ink-faint" aria-hidden="true">✗</span>Príklady z iných firiem, ktoré sa vás netýkajú</li>
+            <li class="flex gap-3"><span class="text-ink-faint" aria-hidden="true">✗</span>„Nadšenie" prvý deň, nikto si nič nezapamätá</li>
+            <li class="flex gap-3"><span class="text-ink-faint" aria-hidden="true">✗</span>Žiadne follow-up — uvidíme sa o rok</li>
+            <li class="flex gap-3"><span class="text-ink-faint" aria-hidden="true">✗</span>Lektor stavia, vy sa pozeráte</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-medium text-navy mb-4 text-sm uppercase tracking-[0.16em]">EduLinker Academy</h3>
+          <ul class="space-y-3 text-ink leading-relaxed text-sm">
+            <li class="flex gap-3"><span class="text-accent font-bold" aria-hidden="true">✓</span>Discovery audit pred workshopom — vidíme vaše procesy</li>
+            <li class="flex gap-3"><span class="text-accent font-bold" aria-hidden="true">✓</span>Konkrétny use-case z vašej firmy, postavený live</li>
+            <li class="flex gap-3"><span class="text-accent font-bold" aria-hidden="true">✓</span>Champion → vlastní výstup, prezentuje ho vedeniu</li>
+            <li class="flex gap-3"><span class="text-accent font-bold" aria-hidden="true">✓</span>30/60/90 day roadmap + 3-mes. mentoring</li>
+            <li class="flex gap-3"><span class="text-accent font-bold" aria-hidden="true">✓</span>Vy stavíte, my navigujeme</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="max-w-4xl mx-auto px-5 sm:px-8 py-24 text-center">
+    <span class="eyebrow justify-center">Ďalší krok</span>
+    <h2 class="display text-3xl sm:text-5xl mt-5">
+      Začneme 15-minútovým <span class="italic">hovorom</span>.
+    </h2>
+    <p class="mt-6 text-ink-muted max-w-prose mx-auto leading-relaxed">
+      Krátky telefonát, kde zistíme, či máte typické problémy, na ktoré sa špecializujeme.
+      Ak nie, povieme si to a odporúčíme niekoho iného. Nestrácajme čas.
+    </p>
+    <a href="/kontakt"
+       class="mt-9 inline-flex items-center gap-2 text-sm font-medium bg-accent text-paper px-7 py-4 rounded-sm hover:bg-accent-ink transition-colors">
+      Dohodnúť call <span aria-hidden="true">→</span>
+    </a>
+  </section>
+</Base>
