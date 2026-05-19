@@ -1,0 +1,123 @@
+---
+import Base from '../layouts/Base.astro';
+
+const steps = [
+  ['01', 'Skills & Financial Audit', 'My prídeme za vami. Zmapujeme, kam tečú peniaze za externé školenia, koľko času sedí v procese schvaľovania jednej faktúry a ktoré licencie máte zaplatené, ale nikto ich nepoužíva. Výstup — tzv. Bloody Report. Zostáva u vás, aj keď s nami nepôjdete ďalej.'],
+  ['02', 'White-Glove setup', 'Importujeme zamestnancov, nastavíme oddelenia, nabijeme virtuálne wallets. Manuálne nájdeme prvých 3–5 lektorov, ktorí riešia vaše konkrétne potreby (cybersec, soft skills, AI). Žiadne prázdne dashboardy.'],
+  ['03', 'Schvaľovanie cez Teams/Slack', 'Manažér vidí žiadosť o školenie priamo tam, kde už komunikuje. Jeden klik — schválené. Bez prepínania do ďalšieho systému, ktorý si treba pamätať.'],
+  ['04', 'Jedna faktúra mesačne', 'Tridsať externých školení od pätnástich dodávateľov = jedna konsolidovaná faktúra od EduLinker. Účtovníctvo má jedného partnera namiesto pätnástich.'],
+];
+
+const objections = [
+  {
+    q: 'Máme už LinkedIn Learning / Seduo. Naozaj potrebujeme ďalšiu vec?',
+    a: 'Tieto platformy poskytujú obsah. EduLinker rieši peňažný a procesný tok — najímanie externých lektorov pre konkrétne projektové potreby, schvaľovanie, fakturáciu a meranie ROI. Sú to navzájom doplnkové vrstvy, nie konkurenti.',
+  },
+  {
+    q: 'Čo zabezpečenie dát zamestnancov?',
+    a: 'CTO 12 rokov v bankovom a enterprise vývoji. RBAC, audit-trail, šifrovanie at-rest aj in-transit. Firemné dáta nepoužívame na trénovanie verejných LLM modelov — to je zmluvný záväzok, nie odporúčanie.',
+  },
+  {
+    q: 'Koľko trvá nasadenie?',
+    a: 'Pre SME do 100 ľudí typicky 2 týždne od podpisu zmluvy. Pre Growth segment (100–500) 4–6 týždňov vrátane integrácie s Active Directory a HR systémom.',
+  },
+  {
+    q: 'Čo ak za pol roka zistíme, že to nepoužívame?',
+    a: 'Mesačné platby, výpoveď s mesačnou výpovednou lehotou, vaše dáta dostanete na export. Žiadne ročné lock-iny v Starter pláne. V Growth máme ročnú zmluvu, ale s try-before-you-buy 60-dňovým full refund.',
+  },
+];
+---
+<Base
+  title="EduLinker pre firmy — koniec licenčného hřbitova"
+  description="Konsolidovaná fakturácia, virtuálne wallets pre oddelenia, schvaľovanie cez Teams/Slack a marketplace overených lektorov pre 20–500 zamestnancov."
+  ogPath="/pre-firmy"
+>
+  <section class="max-w-6xl mx-auto px-5 sm:px-8 pt-16 sm:pt-20 pb-20">
+    <div class="grid lg:grid-cols-12 gap-10">
+      <div class="lg:col-span-8">
+        <span class="eyebrow">Pre firmy · 20–500 zamestnancov</span>
+        <h1 class="display text-4xl sm:text-5xl lg:text-6xl mt-6">
+          Koniec licenčného <span class="italic text-teal">hřbitova</span>.
+        </h1>
+        <p class="mt-7 text-lg text-ink-muted leading-relaxed">
+          Priemer firemného e-learningu má 20–30 % completion rate. CFO to v 2026 začínajú
+          nazývať presne tak, ako to je — mŕtve peniaze. 42 % firiem aktívne hľadá náhradu
+          svojho LMS. EduLinker je o niečom inom: namiesto plošných predplatných pridelí
+          oddeleniam adresné rozpočty na konkrétne školenia, ktoré reálne potrebujú.
+        </p>
+      </div>
+      <aside class="lg:col-span-4 self-end">
+        <div class="border-l-2 border-teal pl-5">
+          <p class="font-serif text-lg text-navy leading-snug italic">
+            „Za každých 100 zakúpených licencií sa reálnym vzdelávaním dokončí 20 až 30. CFO to v 2026 začínajú nazývať presne tak, ako to je — mŕtve peniaze."
+          </p>
+          <p class="mt-4 text-xs text-ink-muted">— 360Learning, 2024 · citované v našom internom briefe</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="bg-paper-tint border-y border-navy/10">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8 py-20">
+      <span class="eyebrow">Skrytý náklad</span>
+      <h2 class="display text-3xl sm:text-4xl mt-5 mb-10">15 000 CZK ročne, ktoré nevidíte v žiadnom reporte.</h2>
+      <div class="grid lg:grid-cols-2 gap-12">
+        <p class="text-ink-muted leading-relaxed">
+          Keď manažér chce externé školenie pre svoj tím, narazí na internú byrokraciu:
+          registrácia nového dodávateľa v ERP, schválenie nákupnej objednávky, zmluva,
+          kontrola dochádzky, párovanie faktúry v účtovníctve. Minimálne štyri oddelenia.
+        </p>
+        <p class="text-ink-muted leading-relaxed">
+          Naše audity ukazujú, že spracovanie jednej dodávateľskej faktúry stojí firmu
+          v priemere <strong class="text-navy">500 CZK</strong> len na internom čase personálu.
+          Pri 30 externých školeniach ročne to je 15 000 CZK — bez jedinej koruny vynaloženej
+          na samotné vzdelávanie.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-6xl mx-auto px-5 sm:px-8 py-24">
+    <span class="eyebrow">Concierge onboarding</span>
+    <h2 class="display text-3xl sm:text-4xl mt-5 mb-12">Ako vyzerá prvých 30 dní s nami.</h2>
+    <ol class="border-t border-navy/10">
+      {steps.map(([n, title, body]) => (
+        <li class="grid grid-cols-12 gap-6 py-8 border-b border-navy/10">
+          <div class="col-span-12 sm:col-span-1 font-serif text-3xl text-teal/80 tracking-tightest">{n}</div>
+          <h3 class="col-span-12 sm:col-span-4 font-serif text-2xl text-navy tracking-tightest">{title}</h3>
+          <p class="col-span-12 sm:col-span-7 text-ink-muted leading-relaxed">{body}</p>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <section class="bg-paper-tint border-y border-navy/10">
+    <div class="max-w-4xl mx-auto px-5 sm:px-8 py-20">
+      <span class="eyebrow">Námietky, ktoré dostávame</span>
+      <h2 class="display text-3xl sm:text-4xl mt-5 mb-10">Spýtajte sa skôr, ako podpíšete.</h2>
+      <div class="space-y-3">
+        {objections.map((f) => (
+          <details class="border border-navy/10 bg-paper rounded-sm group">
+            <summary class="cursor-pointer list-none p-5 flex items-start justify-between gap-6">
+              <span class="font-medium text-navy">{f.q}</span>
+              <span class="text-teal text-xl leading-none mt-0.5 group-open:rotate-45 transition-transform" aria-hidden="true">+</span>
+            </summary>
+            <p class="px-5 pb-5 text-ink-muted leading-relaxed">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-4xl mx-auto px-5 sm:px-8 py-24 text-center">
+    <h2 class="display text-3xl sm:text-4xl">Pošlite mi 30 minút.</h2>
+    <p class="mt-6 text-ink-muted max-w-prose mx-auto leading-relaxed">
+      Stačí krátky online hovor. Ak nemá zmysel pokračovať, povieme si to na konci
+      a nebudeme strácať svoj ani váš čas.
+    </p>
+    <a href="mailto:patrik@edulinker.cz?subject=EduLinker%20%E2%80%94%20discovery%20call"
+       class="mt-9 inline-flex items-center gap-2 text-sm font-medium bg-navy text-paper px-7 py-4 rounded-sm hover:bg-navy-mid transition-colors">
+      Dohodnúť 30-min hovor <span aria-hidden="true">→</span>
+    </a>
+  </section>
+</Base>

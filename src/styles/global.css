@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ----- Brand tokens (mirroring founder playbook) ----- */
+:root {
+  --rule: rgba(15, 42, 71, 0.12);
+  --paper: #fbfaf6;
+  --ink: #111827;
+  --ink-muted: #4b5563;
+  --navy: #0F2A47;
+  --teal: #0D7C66;
+  --accent: #1B9C7E;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  background: var(--paper);
+}
+
+body {
+  font-feature-settings: "ss01", "cv11", "cv05";
+}
+
+/* ----- Hand-drawn underline on prose links ----- */
+.prose-link,
+a.linkish {
+  background-image: linear-gradient(
+    transparent calc(100% - 2px),
+    rgba(13, 124, 102, 0.45) 2px
+  );
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  transition: background-size 200ms ease, color 200ms ease;
+  text-decoration: none;
+}
+.prose-link:hover,
+a.linkish:hover {
+  background-size: 100% 100%;
+  color: var(--teal);
+  background-image: linear-gradient(
+    transparent calc(100% - 6px),
+    rgba(13, 124, 102, 0.25) 6px
+  );
+}
+
+/* ----- Subtle paper grain ----- */
+.paper-grain {
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(rgba(15, 42, 71, 0.025) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* ----- Hand-style rule ----- */
+.rule {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(15, 42, 71, 0.18) 14%,
+    rgba(15, 42, 71, 0.18) 86%,
+    transparent 100%
+  );
+}
+
+/* ----- Eyebrow label (used above hero headings) ----- */
+.eyebrow {
+  font-family: "Inter", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--teal);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 1px;
+  background: var(--teal);
+}
+
+/* ----- Display headline ----- */
+.display {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1.02;
+  color: var(--navy);
+}
+
+/* ----- Pull-quote (used in copy) ----- */
+.pull {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-style: italic;
+  font-size: 1.35rem;
+  line-height: 1.5;
+  color: var(--navy);
+  border-left: 2px solid var(--teal);
+  padding-left: 1.25rem;
+}
+
+/* ----- Selection ----- */
+::selection {
+  background: #0D7C66;
+  color: #fbfaf6;
+}
+
+/* ----- Print fix ----- */
+@media print {
+  .no-print { display: none !important; }
+}

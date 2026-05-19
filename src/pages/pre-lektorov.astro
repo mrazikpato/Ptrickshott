@@ -1,0 +1,73 @@
+---
+import Base from '../layouts/Base.astro';
+
+const values = [
+  ['Žiadny fixný paušál', 'Provízia 10–20 % z reálne uzatvorenej zmluvy. Ak nepredáte, neplatíte. Pre OSVČ a malé vzdelávacie s.r.o. najnižšie možné riziko.'],
+  ['Pripravený B2B klient', 'Vás nevoláme „možno raz na budúce stretnutie". Voláme keď máme reálnu objednávku z firmy alebo školy v ruke. Vašou prácou je školiť, nie predávať.'],
+  ['Žiadny procurement', 'Nemusíte sa registrovať ako dodávateľ v každej firme zvlášť. EduLinker je váš jediný kanál — jedna zmluva, jedna fakturácia, jeden účet.'],
+  ['Profesionálny profil', 'Vlastná stránka v marketplace s referenciami, témami, sadzbami a kalendárom dostupnosti. Funguje aj ako vaša verejná „card".'],
+];
+---
+<Base
+  title="EduLinker pre lektorov — B2B kanál bez procurement martyrdomu"
+  description="Marketplace pre B2B lektorov a vzdelávacie agentúry: priami klienti zo škôl a firiem, 10–20 % take rate, žiadny fixný paušál."
+  ogPath="/pre-lektorov"
+>
+  <section class="max-w-6xl mx-auto px-5 sm:px-8 pt-16 sm:pt-20 pb-20">
+    <div class="max-w-3xl">
+      <span class="eyebrow">Pre lektorov · OSVČ · agentúry</span>
+      <h1 class="display text-4xl sm:text-5xl lg:text-6xl mt-6">
+        Vašou prácou je <span class="italic text-teal">učiť</span>,<br />nie predávať.
+      </h1>
+      <p class="mt-7 text-lg text-ink-muted leading-relaxed">
+        Kvalitní lektori dnes trávia 60 % času na akvizícii a fakturácii. Predávajú
+        firmám, ktoré majú rozpočet, ale komplikovaný procurement. My ten procurement
+        riešime za vás — vy sa staráte o obsah a školenia.
+      </p>
+      <a href="mailto:patrik@edulinker.cz?subject=Lektor%20%E2%80%94%20chcem%20do%20marketplace"
+         class="mt-9 inline-flex items-center gap-2 text-sm font-medium bg-navy text-paper px-6 py-3.5 rounded-sm hover:bg-navy-mid transition-colors">
+        Pridať sa do marketplace <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="bg-paper-tint border-y border-navy/10">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8 py-20">
+      <span class="eyebrow">Take rate model</span>
+      <h2 class="display text-3xl sm:text-4xl mt-5 mb-12">Ako to funguje finančne.</h2>
+      <div class="grid md:grid-cols-2 gap-px bg-navy/10 border border-navy/10">
+        {values.map(([title, body]) => (
+          <article class="bg-paper p-7">
+            <h3 class="font-serif text-xl text-navy tracking-tightest">{title}</h3>
+            <p class="text-sm text-ink-muted mt-3 leading-relaxed">{body}</p>
+          </article>
+        ))}
+      </div>
+      <p class="mt-8 text-sm text-ink-muted max-w-prose">
+        V Roku 1 fakturujete priamo nám (EduLinker s.r.o.), my fakturujeme klientom. V Roku 2
+        prechádzame na Stripe Connect — peniaze tečú priamo na váš účet po dokončení školenia.
+      </p>
+    </div>
+  </section>
+
+  <section class="max-w-4xl mx-auto px-5 sm:px-8 py-24">
+    <span class="eyebrow">Aké témy hľadáme</span>
+    <h2 class="display text-3xl sm:text-4xl mt-5">Pre úvodnú vlnu prioritne&nbsp;tieto&nbsp;oblasti.</h2>
+    <ul class="mt-10 space-y-4 text-ink-muted">
+      <li class="flex gap-3"><span class="text-teal" aria-hidden="true">→</span>Kyberbezpečnosť a digitálna hygiena (firmy aj školy)</li>
+      <li class="flex gap-3"><span class="text-teal" aria-hidden="true">→</span>AI nástroje pre administratívu a tvorbu obsahu</li>
+      <li class="flex gap-3"><span class="text-teal" aria-hidden="true">→</span>Soft skills: komunikácia, vedenie tímu, prezentačné zručnosti</li>
+      <li class="flex gap-3"><span class="text-teal" aria-hidden="true">→</span>OP JAK / IS ESF metodika (pre školy)</li>
+      <li class="flex gap-3"><span class="text-teal" aria-hidden="true">→</span>BOZP a zákonné školenia s dohľadom nad expiráciou</li>
+      <li class="flex gap-3"><span class="text-teal" aria-hidden="true">→</span>Cudzie jazyky pre korporátne tímy</li>
+    </ul>
+    <p class="mt-10 text-ink-muted leading-relaxed">
+      Aj keď vaša téma nie je v zozname — napíšte. Ak vieme dohnať dopyt na to, čo robíte
+      dobre, máme spoločnú prácu.
+    </p>
+    <a href="mailto:patrik@edulinker.cz?subject=Lektor%20%E2%80%94%20moja%20t%C3%A9ma"
+       class="mt-9 inline-flex items-center gap-2 text-sm font-medium bg-navy text-paper px-7 py-4 rounded-sm hover:bg-navy-mid transition-colors">
+      Predstaviť svoju expertízu <span aria-hidden="true">→</span>
+    </a>
+  </section>
+</Base>
